@@ -5,7 +5,7 @@
 
 可以前往[投稿专用帖](https://github.com/xiaotian2333/special-ability/discussions/1)进行投稿，但是请注意投稿要求
 
-> GitCode地址仅为镜像使用，如有提issues或pr需求请[前往GitHub](https://gitlab.com/xiaotian2333/special-ability)
+> GitCode地址仅为镜像使用，如有提issues或pr需求请[前往GitHub](https://github.com/xiaotian2333/special-ability)
 
 ## 安装与更新
 
@@ -18,7 +18,7 @@
 #### **使用GitHub**
 
 ``` bash
-git clone --depth=1 https://gitlab.com/xiaotian2333/special-ability ./plugins/special-ability/
+git clone --depth=1 https://github.com/xiaotian2333/special-ability ./plugins/special-ability/
 ```
 
 #### **使用GitCode**

@@ -3,7 +3,7 @@
 获取一个超能力及对应的副作用  
 内容仅供娱乐！！！
 
-可以前往投稿专用帖进行投稿，但是请注意投稿要求
+可以前往[投稿专用帖](https://github.com/xiaotian2333/yunzai-plugins-Single-file/discussions/1)进行投稿，但是请注意投稿要求
 
 > GitCode地址仅为镜像使用，如有提issues或pr需求请[前往GitHub](https://gitlab.com/xiaotian2333/special-ability)
 

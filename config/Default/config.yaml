@@ -1,13 +1,16 @@
+# 随机超能力配置文件
+# 本地文件起始点以插件目录为基准
+
 # 超能力列表
 cnl:
  url: 'https://oss.xt-url.com/超能力/超能力列表.txt'
  pro: 'https://oss.xt-url.com/超能力/超能力列表pro.txt'
- file: './plugins/special-ability/data/超能力列表.txt'
+ file: './data/超能力列表.txt'
 # 副作用列表
 fzy:
  url: 'https://oss.xt-url.com/超能力/副作用列表.txt'
  pro: 'https://oss.xt-url.com/超能力/副作用列表pro.txt'
- file: './plugins/special-ability/data/副作用列表.txt'
+ file: './data/副作用列表.txt'
 
 # 功能开关选项
 pro: false # 是否开启pro

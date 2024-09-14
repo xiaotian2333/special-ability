@@ -1,11 +1,12 @@
 import fs from 'node:fs'
+import { pluginRoot } from './lib/path.js'
 
 logger.info(`---------=.=---------`)
 logger.info(`随机超能力插件载入中`)
 let ret = []
 
 const files = fs
-  .readdirSync('./plugins/Special-ability/apps')
+  .readdirSync(`${pluginRoot}/apps`)
   .filter((file) => file.endsWith('.js'))
 
 files.forEach((file) => {

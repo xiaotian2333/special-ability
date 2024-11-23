@@ -12,6 +12,11 @@ fzy:
  pro: 'https://oss.xt-url.com/超能力/副作用列表pro.txt'
  file: './data/副作用列表.txt'
 
+# 穿越点列表
+cyd:
+ url: 'https://oss.xt-url.com/超能力/穿越点列表.txt'
+ file: './data/穿越点列表.txt'
+
 # 功能开关选项
 pro: false # 是否开启pro
 local: false # 是否开启本地文件

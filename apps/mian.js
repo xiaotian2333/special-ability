@@ -5,20 +5,42 @@
 import getlist from "../lib/getlist.js"
 import cfg from "../lib/cfg.js"
 
-// 读取列表
-let cnl_list = await getlist.url(cfg.getConfig().cnl.url)
-let fzy_list = await getlist.url(cfg.getConfig().fzy.url)
-let cyd_list = await getlist.url(cfg.getConfig().cyd.url)
-// 当pro标识开启时并入pro列表
-if (cfg.getConfig().pro) {
-    cnl_list.push(...await getlist.url(cfg.getConfig().cnl.pro))
-    fzy_list.push(...await getlist.url(cfg.getConfig().fzy.pro))
-}
-// 当本地标识开启时并入本地列表
-if (cfg.getConfig().local) {
-    cnl_list.push(...await getlist.file(cfg.getConfig().cnl.file))
-    fzy_list.push(...await getlist.file(cfg.getConfig().fzy.file))
-    cyd_list.push(...await getlist.file(cfg.getConfig().cyd.file))
+let cnl_list = [], fzy_list = [], cyd_list = []
+
+try {
+    // 读取网络列表
+    [cnl_list, fzy_list, cyd_list] = await Promise.all([
+        getlist.url(cfg.getConfig().cnl.url),
+        getlist.url(cfg.getConfig().fzy.url),
+        getlist.url(cfg.getConfig().cyd.url)
+    ])
+
+    // 当pro标识开启时并入pro列表
+    if (cfg.getConfig().pro) {
+        // 使用 Promise.all 并发处理，提高效率
+        const [cnl_pro_data, fzy_pro_data] = await Promise.all([
+            getlist.url(cfg.getConfig().cnl.pro),
+            getlist.url(cfg.getConfig().fzy.pro)
+        ]);
+        cnl_list.push(...cnl_pro_data)
+        fzy_list.push(...fzy_pro_data)
+    }
+
+    // 当本地标识开启时并入本地列表
+    if (cfg.getConfig().local) {
+        const [cnl_local_data, fzy_local_data, cyd_local_data] = await Promise.all([
+            getlist.file(cfg.getConfig().cnl.file),
+            getlist.file(cfg.getConfig().fzy.file),
+            getlist.file(cfg.getConfig().cyd.file)
+        ])
+        cnl_list.push(...cnl_local_data)
+        fzy_list.push(...fzy_local_data)
+        cyd_list.push(...cyd_local_data)
+    }
+
+} catch (error) {
+    // 捕获到任何错误时，输出日志
+    logger.error('[随机超能力] 网络请求错误:', error.message)
 }
 
 // 生成数字随机整数函数
